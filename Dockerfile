@@ -1,10 +1,12 @@
 # ChurnShield API - Dockerfile for Render
 FROM rocker/r-ver:4.3.0
 
-# Install system dependencies
+# Install system dependencies (including zlib and sodium for plumber)
 RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
+    zlib1g-dev \
+    libsodium-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install R packages
